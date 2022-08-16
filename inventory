@@ -1,6 +1,1 @@
 192.168.95.144
-
-[192.168.95.144:vars]
-ansible_ssh_user=master
-ansible_ssh_pass=master
-ansible_become_pass=master
