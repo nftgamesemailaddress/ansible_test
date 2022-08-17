@@ -12,7 +12,12 @@
     apt:
       name: apache2
 
-  - name: Make sure the current version of ‘sysstat’ is installed.
-    dnf:
-      name: sysstat
+  - name: ensure nginx is at the latest version
+    apt:
+      name: nginx
       state: latest
+  - name: start nginx
+    service: 
+      name: nginx
+      state: started
+      enabled: yes
