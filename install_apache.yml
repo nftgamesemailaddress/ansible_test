@@ -11,3 +11,10 @@
   - name: Install apache2 package
     apt:
       name: apache2
+
+  - name: Install the version '1.18.0' of package "nginx" and allow potential downgrades
+    ansible.builtin.apt:
+      name: nginx=1.18.0
+      state: present
+      allow_downgrade: yes
+ 
