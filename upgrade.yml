@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: upgrade ubuntu machines
+      apt:
+        update_cache: yes
+        upgrade: 'yes'
