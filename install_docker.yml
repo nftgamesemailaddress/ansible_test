@@ -6,6 +6,6 @@
     tasks:
     - name: install docker
       apt:
-        name: docker.io
-        state: present
+        name: docker-ce
+        state: latest
         update_cache: true
