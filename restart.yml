@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  handlers:
+  - name: restart service
+    service:
+      name: "httpd"
+      state: restarted
+      enabled: yes
+    register: restart
+  - debug:
+      var: restart.stdout

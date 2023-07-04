@@ -1,0 +1,23 @@
+---
+- name: Create User and User Group
+  hosts: all
+  become: Yes
+  become_user: root
+  
+  tasks:
+  - name: Create group admin
+    group:
+      name:
+        admin
+      state: present
+
+  - name: Create group developer
+    group:
+      name:
+        developer
+      state: present
+
+  - name: Create user
+    ansible.builtin.user:
+      name: john
+      state: present  

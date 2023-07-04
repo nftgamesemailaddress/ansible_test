@@ -1,10 +1,30 @@
 ---
+- name: Install nginx
+  hosts: servers
+  become: false
+  become_user: root
+  become_method: su
 
-- hosts: all
-  become: true
+
   tasks:
-
-  - name: uninstall nginx
-    apt:
-      name: nginx
+  - name: Remove apt lock file
+    file:
       state: absent
+      path: "/var/lib/dpkg/lock"
+
+  - name: Upgrade all packages to the latest version
+    apt:
+      name: "*"
+      state: latest
+      force_apt_get: yes
+
+  - name: install nginx
+    apt:
+      name: httpd 
+      state: latest
+
+  - name: start service
+    service:
+      name: httpd
+      state: started
+      enabled: yes        
